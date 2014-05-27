@@ -46,16 +46,32 @@ define([
             var me = this,
                 callback = options.callback;
 
+            function _renderCounter() {
+                var counters = $(".counter .text");
+                if (counters) {
+                    counters.each(function() {
+                        debugger;
+                        var compile = _.template("<%= counter %>");
+                        $(this).html(compile({counter:me.options.id}));
+                    });
+                }
+            }
+
+            function _callback() {
+                _renderCounter();
+                me.$el.html(me.template({counter: me.options.id}));
+            }
+
             me.options.status = options.status;
             me.options.direction = options.direction;
 
             if (!me.options.status) {
                 this.transitionIn(function () {
-                    me.$el.html(me.template({counter: me.options.id}));
+                    _callback();
                 }, callback);
             } else {
                 this.transitionOut(function () {
-                    me.$el.html(me.template({counter: me.options.id}));
+                    _callback();
                 }, callback);
             }
 
