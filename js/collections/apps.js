@@ -4,6 +4,7 @@ define([
 	'backbone',
 	'backboneLocalstorage',
 	'models/app'
+
 ], function (_, Backbone, Store, App) {
 	'use strict';
 
@@ -15,11 +16,11 @@ define([
             console.log("[todomvcspa app collection] Initialized");
         },
 
-        url: "data/apps.json"
+        url: "./data/apps.json"
 
 
 
     });
 
-	return new AppsCollection();
+	return AppsCollection;
 });

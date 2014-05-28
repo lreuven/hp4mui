@@ -16,22 +16,20 @@ define([
 
             me.options.pages = {
 
-                page1: {
+                page0: {
                     delay: 500,
                     top: 50,
                     topin: 2000,
-                    topout: 2000
-                },
-                page2: {
-                    top: 50,
-                    topin: 2000,
-                    topout: 2000
+                    topout: 2000,
+                    counter: {
+                        display: true
+                    }
                 }
             };
 
             pageconfig = me.options.pages[page];
             if (!pageconfig) {
-                pageconfig = me.options.pages["page"+2];
+                pageconfig = me.options.pages["page0"];
             }
             return pageconfig;
         },
@@ -47,12 +45,23 @@ define([
                 callback = options.callback;
 
             function _renderCounter() {
-                var counters = $(".counter .text");
-                if (counters) {
+                var counters = $(".counter"),
+                    meoptions = me.options.self;
+
+                if (meoptions.counter.display) {
+                    if (counters) {
+                        counters.each(function() {
+                            var compile = _.template("<%= counter %>"),
+                                text = $(this).find(".text");
+
+                            text.html(compile({counter:me.options.id}));
+                            $(this).css("opacity", "1");
+                        });
+                    }
+                } else {
+                    counters = $(".counter");
                     counters.each(function() {
-                        debugger;
-                        var compile = _.template("<%= counter %>");
-                        $(this).html(compile({counter:me.options.id}));
+                        $(this).css("opacity", "0");
                     });
                 }
             }

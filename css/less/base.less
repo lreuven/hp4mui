@@ -17,6 +17,7 @@ html, body {
   height: 100%;
   border: 1px solid gray;
   position: absolute;
+  background-color: #ebebeb;
 }
 
 #container {
@@ -81,12 +82,14 @@ html, body {
 
 
   #navbar {
-    background-color: #0096d6;
+    position: fixed;
+    background-color: #ffffff;
     position: absolute;
-    height: 35px;
+    height: 56px;
     width: 100%;
     top: -1px;
     z-index: 100000;
+    .box-shadow(0px 6px 0px 0px rgba(0,0,0,0.05));
 
     div {
       position: absolute;
@@ -96,31 +99,36 @@ html, body {
       font-family: "HPSimplified", "Trebuchet MS", Arial;
       font-weight: bold;
       font-size: 20px;
-      color: #ffffff;
+      color: #434343;
       width: 100%;
       height: 100%;
 
       .text {
+        position: absolute;
+        left: 55px;
+        top: 21px;
+
         white-space: nowrap;
         width: 100px;
-        font-family: "HPSimplifiedLight", "Trebuchet MS", Arial;
-        font-size: 20px;
+        font-family: "HPSimplified", "Trebuchet MS", Arial;
+        font-size: 16px;
         font-weight: normal;
-        left: 138px;
-        position: absolute;
-        top: 9px;
+        color: #434343
       }
 
       .image {
-        background: url(../images/sprite.png) -78px 0px no-repeat;
+        position: absolute;
+        left: 23px;
+        top: 15px;
+        background: url(../images/sprite.png) 0px 0px no-repeat;
         width: 30px;
         height: 30px;
         border: 0px;
-        margin: 5px 0px 0px 100px;
       }
     }
 
     .counter {
+      opacity: 0;
       background-color: #0096d6;
       width: 110px;
       height: 110px;
@@ -144,18 +152,17 @@ html, body {
   }
 
   footer {
-    height: 35px;
     width: 100%;
     bottom: 0px;
     position: absolute;
-    background-color: #e2e6e5;
 
     .counter {
+      opacity: 0;
       background-color: #e2e6e5;
       width: 110px;
       height: 110px;
       color: #ffffff;
-      top: -40px;
+      top: -100px;
       position: absolute;
       left: 50%;
       .border-radius(50%);

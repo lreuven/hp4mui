@@ -1,0 +1,58 @@
+.petek {
+  width: @petek-width;
+  height: @petek-height;
+  border: 1px solid #e5eae9;
+  .border-radius(0px 12px 0px 12px);
+  .box-shadow(2px 2px 0px 0px #e5eae9);
+  font-family: "HPSimplifiedLight", "Trebuchet MS", Arial;
+
+  .icon {
+    height: @petek-title-height;
+  }
+
+  .details {
+    position: absolute;
+    padding: 0px;
+    border-top: 1px solid #e5eae9;
+    background-color: #f6faf9;
+
+
+    .info-icon {
+      position: absolute;
+      top: 8px;
+      right:10px;
+
+      background: url(./../images/sprite.png) -110px 4px no-repeat #ffffff;
+      width: 25px;
+      height: 25px;
+
+    }
+
+    ul {
+      padding: 0px 0px 0px 15px;
+      margin: 8px 0px 0px 0px;
+
+      li {
+        list-style: none;
+        padding: 2px 0px 2px 0px;
+      }
+    }
+
+    .dtitle {
+      color: #000000;
+      font-size: 17px;
+    }
+
+    .ddescription {
+      color: #707171;
+      font-size: 15px;
+    }
+
+    .dversion {
+      color: #3dafdf;
+      font-size: 15px;
+
+    }
+  }
+
+}

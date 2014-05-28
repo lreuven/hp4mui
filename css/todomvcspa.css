@@ -51,6 +51,7 @@ body {
   height: 100%;
   border: 1px solid gray;
   position: absolute;
+  background-color: #ebebeb;
 }
 #container #workspace {
   width: 100%;
@@ -109,12 +110,16 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 #container #navbar {
-  background-color: #0096d6;
+  position: fixed;
+  background-color: #ffffff;
   position: absolute;
-  height: 35px;
+  height: 56px;
   width: 100%;
   top: -1px;
   z-index: 100000;
+  -webkit-box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.05);
 }
 #container #navbar div {
   position: absolute;
@@ -124,28 +129,32 @@ body {
   font-family: "HPSimplified", "Trebuchet MS", Arial;
   font-weight: bold;
   font-size: 20px;
-  color: #ffffff;
+  color: #434343;
   width: 100%;
   height: 100%;
 }
 #container #navbar div .text {
+  position: absolute;
+  left: 55px;
+  top: 21px;
   white-space: nowrap;
   width: 100px;
-  font-family: "HPSimplifiedLight", "Trebuchet MS", Arial;
-  font-size: 20px;
+  font-family: "HPSimplified", "Trebuchet MS", Arial;
+  font-size: 16px;
   font-weight: normal;
-  left: 138px;
-  position: absolute;
-  top: 9px;
+  color: #434343;
 }
 #container #navbar div .image {
-  background: url(../images/sprite.png) -78px 0px no-repeat;
+  position: absolute;
+  left: 23px;
+  top: 15px;
+  background: url(../images/sprite.png) 0px 0px no-repeat;
   width: 30px;
   height: 30px;
   border: 0px;
-  margin: 5px 0px 0px 100px;
 }
 #container #navbar .counter {
+  opacity: 0;
   background-color: #0096d6;
   width: 110px;
   height: 110px;
@@ -171,18 +180,17 @@ body {
   top: 50px;
 }
 #container footer {
-  height: 35px;
   width: 100%;
   bottom: 0px;
   position: absolute;
-  background-color: #e2e6e5;
 }
 #container footer .counter {
+  opacity: 0;
   background-color: #e2e6e5;
   width: 110px;
   height: 110px;
   color: #ffffff;
-  top: -40px;
+  top: -100px;
   position: absolute;
   left: 50%;
   -webkit-border-radius: 50%;
@@ -201,6 +209,58 @@ body {
   position: absolute;
   left: 43px;
   top: 20px;
+}
+.petek {
+  width: 200px;
+  height: 250px;
+  border: 1px solid #e5eae9;
+  -webkit-border-radius: 0px 12px 0px 12px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0px 12px 0px 12px;
+  -moz-background-clip: padding;
+  border-radius: 0px 12px 0px 12px;
+  background-clip: padding-box;
+  -webkit-box-shadow: 2px 2px 0px 0px #e5eae9;
+  -moz-box-shadow: 2px 2px 0px 0px #e5eae9;
+  box-shadow: 2px 2px 0px 0px #e5eae9;
+  font-family: "HPSimplifiedLight", "Trebuchet MS", Arial;
+}
+.petek .icon {
+  height: 150px;
+}
+.petek .details {
+  position: absolute;
+  padding: 0px;
+  border-top: 1px solid #e5eae9;
+  background-color: #f6faf9;
+}
+.petek .details .info-icon {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: url(../images/sprite.png) -110px 4px no-repeat #ffffff;
+  width: 25px;
+  height: 25px;
+}
+.petek .details ul {
+  padding: 0px 0px 0px 15px;
+  margin: 8px 0px 0px 0px;
+}
+.petek .details ul li {
+  list-style: none;
+  padding: 2px 0px 2px 0px;
+}
+.petek .details .dtitle {
+  color: #000000;
+  font-size: 17px;
+}
+.petek .details .ddescription {
+  color: #707171;
+  font-size: 15px;
+}
+.petek .details .dversion {
+  color: #3dafdf;
+  font-size: 15px;
 }
 #next-page {
   margin-bottom: 0px;
@@ -241,6 +301,10 @@ body {
 #page .title .sub-header {
   color: #3d3d3d;
   font-size: 30px;
+}
+#page #content {
+  width: 100%;
+  height: 100%;
 }
 #page h1#counter {
   position: absolute;

@@ -23,6 +23,7 @@ define([
         pages: {},
         refs: {
         },
+        defaultPage: 0,
 
         initialize: function () {
             var me = this;
@@ -42,7 +43,7 @@ define([
                     if (id) {
                         id = parseInt(id);
                         if (gap === -1) {
-                            if (id > 1) {
+                            if (id > me.defaultPage) {
                                 //me.page(id - 1, 0);
                                 me.navigate("page/" + (id - 1) + "/0", true);
                             }
@@ -73,7 +74,7 @@ define([
             console.log("[todomvcspa router] Home call");
 
             if (!device.isDevice()) {
-                this.navigate("page/1", true);
+                this.navigate(("page/" + this.defaultPage), true);
             } else {
                 this.navigate("mobile", true);
             }
@@ -126,7 +127,7 @@ define([
 
                 console.log("page direction: ", direction);
                 me.pages.previous = (me.pages.current || id);
-                me.pages.current = (id || 1);
+                me.pages.current = (id || me.defaultPage);
 
                 refId = "p" + id;
                 viewName = "views/page" + id;
