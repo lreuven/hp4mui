@@ -45,23 +45,34 @@ define([
                 callback = options.callback;
 
             function _renderCounter() {
-                var counters = $(".counter"),
-                    meoptions = me.options.self;
+                var counters = $(".counter-wrapper"),
+                    meoptions = me.options.self,
+                    index=0;
 
                 if (meoptions.counter.display) {
                     if (counters) {
                         counters.each(function() {
                             var compile = _.template("<%= counter %>"),
-                                text = $(this).find(".text");
+                                counterbg = $(this).find(".counter-bg"),
+                                counter = $(this).find(".counter"),
+                                text = $(this).find(".counter .text");
 
-                            text.html(compile({counter:me.options.id}));
-                            $(this).css("opacity", "1");
+                            text.html(compile({counter:(parseInt(me.options.id)+index)}));
+                            counter.css("opacity", "1");
+                            counterbg.removeClass();
+                            counterbg.addClass("counter-bg");
+                            counterbg.addClass("counter-bg-page" + me.options.id + "-" + index);
+                            index++;
                         });
                     }
                 } else {
-                    counters = $(".counter");
                     counters.each(function() {
-                        $(this).css("opacity", "0");
+                        var counterbg = $(this).find(".counter-bg");
+                        if (counterbg) {
+                            counterbg.removeClass();
+                            counterbg.addClass("counter-bg");
+                        }
+                        $(this).find(".counter").css("opacity", "0");
                     });
                 }
             }
