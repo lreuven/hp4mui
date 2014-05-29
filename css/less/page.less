@@ -25,28 +25,40 @@
 
 #page {
   font-size: 30px;
-  margin: 5px auto 0;
-  max-width: 700px;
+  margin: 0 auto 0;
+  max-width: 950px;
+  min-width: 950px;
   font-size: 30px;
   text-align: left;
-  top: 50px;
 
   .title {
+    padding: 0;
+    margin: 116px 0 0 0;
     list-style: none;
-    font:normal 20px "HPSimplifiedLight", "Trebuchet MS", Arial;
+    font-family: "HPSimplifiedLight", "Trebuchet MS", Arial;
 
     li {
       padding: 0px 0px 10px 0px;
     }
 
     .header {
-      color: #0096d6;
-      font-size: 40px;
+      color: #000000;
+      font-size: 26px;
+      line-height: 133%;
+
+      .tiles-current {
+        padding: 0 0 0 18px;
+        font-size: 26px;
+        line-height: 73%;
+        color: #777776
+      }
+      .tiles-total {
+        font-size: 20px;
+        line-height: 73%;
+        color: #777776
+      }
     }
-    .sub-header {
-      color: #3d3d3d;
-      font-size: 30px;
-    }
+
   }
 
   #content {

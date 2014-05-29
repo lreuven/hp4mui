@@ -1,57 +1,74 @@
 .petek {
-  width: @petek-width;
-  height: @petek-height;
+
+  float: left;
+  width: 136px;
+  height: 295px;
   border: 1px solid #e5eae9;
-  .border-radius(0px 12px 0px 12px);
-  .box-shadow(2px 2px 0px 0px #e5eae9);
+  .border-radius(0px 10px 0px 10px);
+  .box-shadow(0px 8px 0px 0px #dedede);
   font-family: "HPSimplifiedLight", "Trebuchet MS", Arial;
+  background-color: #ffffff;
+  padding: 0px 37px 0px 37px;
+  margin: 10px 20px 10px 0px;
+
+  .info-icon {
+    width: 23px;
+    height: 23px;
+    float: right;
+    margin: 6px -31px 0px 0px;
+    background: url(./../images/sprite.png) -31px 0px no-repeat #ffffff;
+  }
 
   .icon {
-    height: @petek-title-height;
+    width: 116px;
+    height: 116px;
+    margin: 20px 10px 0 10px;
+    border: none;
+    outline: none;
   }
 
   .details {
-    position: absolute;
     padding: 0px;
-    border-top: 1px solid #e5eae9;
-    background-color: #f6faf9;
-
-
-    .info-icon {
-      position: absolute;
-      top: 8px;
-      right:10px;
-
-      background: url(./../images/sprite.png) -110px 4px no-repeat #ffffff;
-      width: 25px;
-      height: 25px;
-
-    }
+    background-color: #ffffff;
+    margin: auto auto;
 
     ul {
-      padding: 0px 0px 0px 15px;
-      margin: 8px 0px 0px 0px;
+      padding: 0;
+      margin: 0;
 
       li {
         list-style: none;
-        padding: 2px 0px 2px 0px;
+        padding: 0px 0px 0px 0px;
+        text-align: left;
       }
     }
 
+    .new-app {
+      width:100%;
+      text-align: center;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 133%;
+    }
     .dtitle {
       color: #000000;
-      font-size: 17px;
+      font-size: 18px;
+      line-height: 133%;
+      padding: 14px 0 0 0;
     }
 
     .ddescription {
-      color: #707171;
-      font-size: 15px;
+      color: #6b6b6b;
+      font-size: 14px;
+      line-height: 120%;
+      padding: 18px 0 0 0;
     }
 
     .dversion {
-      color: #3dafdf;
-      font-size: 15px;
-
+      color: #0096d6;
+      font-size: 14px;
+      line-height: 120%;
+      padding: 23px 0 0 0;
     }
   }
 

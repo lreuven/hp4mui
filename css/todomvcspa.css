@@ -57,9 +57,13 @@ body {
   z-index: 1;
   top: 0px;
   position: absolute;
-  left: 50%;
+  left: 44%;
 }
 #container .counter-wrapper .counter {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   opacity: 0;
   background-color: #8bb65c;
   width: 115px;
@@ -213,9 +217,13 @@ body {
   z-index: 1;
   top: 0px;
   position: absolute;
-  left: 50%;
+  left: 44%;
 }
 #container footer .counter-wrapper .counter {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   opacity: 0;
   background-color: #d6d6d6;
   width: 115px;
@@ -321,56 +329,76 @@ body {
   top: -102px;
 }
 .petek {
-  width: 200px;
-  height: 250px;
+  float: left;
+  width: 136px;
+  height: 295px;
   border: 1px solid #e5eae9;
-  -webkit-border-radius: 0px 12px 0px 12px;
+  -webkit-border-radius: 0px 10px 0px 10px;
   -webkit-background-clip: padding-box;
-  -moz-border-radius: 0px 12px 0px 12px;
+  -moz-border-radius: 0px 10px 0px 10px;
   -moz-background-clip: padding;
-  border-radius: 0px 12px 0px 12px;
+  border-radius: 0px 10px 0px 10px;
   background-clip: padding-box;
-  -webkit-box-shadow: 2px 2px 0px 0px #e5eae9;
-  -moz-box-shadow: 2px 2px 0px 0px #e5eae9;
-  box-shadow: 2px 2px 0px 0px #e5eae9;
+  -webkit-box-shadow: 0px 8px 0px 0px #dedede;
+  -moz-box-shadow: 0px 8px 0px 0px #dedede;
+  box-shadow: 0px 8px 0px 0px #dedede;
   font-family: "HPSimplifiedLight", "Trebuchet MS", Arial;
+  background-color: #ffffff;
+  padding: 0px 37px 0px 37px;
+  margin: 10px 20px 10px 0px;
+}
+.petek .info-icon {
+  width: 23px;
+  height: 23px;
+  float: right;
+  margin: 6px -31px 0px 0px;
+  background: url(../images/sprite.png) -31px 0px no-repeat #ffffff;
 }
 .petek .icon {
-  height: 150px;
+  width: 116px;
+  height: 116px;
+  margin: 20px 10px 0 10px;
+  border: none;
+  outline: none;
 }
 .petek .details {
-  position: absolute;
   padding: 0px;
-  border-top: 1px solid #e5eae9;
-  background-color: #f6faf9;
-}
-.petek .details .info-icon {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  background: url(../images/sprite.png) -110px 4px no-repeat #ffffff;
-  width: 25px;
-  height: 25px;
+  background-color: #ffffff;
+  margin: auto auto;
 }
 .petek .details ul {
-  padding: 0px 0px 0px 15px;
-  margin: 8px 0px 0px 0px;
+  padding: 0;
+  margin: 0;
 }
 .petek .details ul li {
   list-style: none;
-  padding: 2px 0px 2px 0px;
+  padding: 0px 0px 0px 0px;
+  text-align: left;
+}
+.petek .details .new-app {
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 133%;
 }
 .petek .details .dtitle {
   color: #000000;
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 133%;
+  padding: 14px 0 0 0;
 }
 .petek .details .ddescription {
-  color: #707171;
-  font-size: 15px;
+  color: #6b6b6b;
+  font-size: 14px;
+  line-height: 120%;
+  padding: 18px 0 0 0;
 }
 .petek .details .dversion {
-  color: #3dafdf;
-  font-size: 15px;
+  color: #0096d6;
+  font-size: 14px;
+  line-height: 120%;
+  padding: 23px 0 0 0;
 }
 #next-page {
   margin-bottom: 0px;
@@ -391,26 +419,36 @@ body {
   opacity: 1;
 }
 #page {
-  margin: 5px auto 0;
-  max-width: 700px;
+  margin: 0 auto 0;
+  max-width: 950px;
+  min-width: 950px;
   font-size: 30px;
   text-align: left;
-  top: 50px;
 }
 #page .title {
+  padding: 0;
+  margin: 116px 0 0 0;
   list-style: none;
-  font: normal 20px "HPSimplifiedLight", "Trebuchet MS", Arial;
+  font-family: "HPSimplifiedLight", "Trebuchet MS", Arial;
 }
 #page .title li {
   padding: 0px 0px 10px 0px;
 }
 #page .title .header {
-  color: #0096d6;
-  font-size: 40px;
+  color: #000000;
+  font-size: 26px;
+  line-height: 133%;
 }
-#page .title .sub-header {
-  color: #3d3d3d;
-  font-size: 30px;
+#page .title .header .tiles-current {
+  padding: 0 0 0 18px;
+  font-size: 26px;
+  line-height: 73%;
+  color: #777776;
+}
+#page .title .header .tiles-total {
+  font-size: 20px;
+  line-height: 73%;
+  color: #777776;
 }
 #page #content {
   width: 100%;
