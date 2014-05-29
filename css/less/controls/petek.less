@@ -1,4 +1,8 @@
+
 .petek {
+
+  position: relative;
+  text-decoration: none;
 
   float: left;
   width: 136px;
@@ -16,7 +20,7 @@
     height: 23px;
     float: right;
     margin: 6px -31px 0px 0px;
-    background: url(./../images/sprite.png) -31px 0px no-repeat #ffffff;
+    background: url(./../images/sprite.png) -31px 0px no-repeat transparent;
   }
 
   .icon {
@@ -29,7 +33,7 @@
 
   .details {
     padding: 0px;
-    background-color: #ffffff;
+    background-color: transparent;
     margin: auto auto;
 
     ul {
@@ -72,4 +76,10 @@
     }
   }
 
+}
+
+.petek:hover, a:active, a:link, a:visited {
+  text-decoration: none;
+  background-color: rgba(0,0,0, .2);
+  cursor: pointer;
 }

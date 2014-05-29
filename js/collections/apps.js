@@ -2,10 +2,9 @@
 define([
 	'underscore',
 	'backbone',
-	'backboneLocalstorage',
 	'models/app'
 
-], function (_, Backbone, Store, App) {
+], function (_, Backbone, App) {
 	'use strict';
 
 	var AppsCollection = Backbone.Collection.extend({

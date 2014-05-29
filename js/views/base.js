@@ -17,10 +17,10 @@ define([
             me.options.pages = {
 
                 page0: {
-                    delay: 500,
+                    delay: 700,
                     top: 50,
-                    topin: 2000,
-                    topout: 2000,
+                    topin: 1000,
+                    topout: 1000,
                     counter: {
                         display: true
                     }
@@ -103,7 +103,8 @@ define([
 
             var top,
                 me = this,
-                topin;
+                topin,
+                meoptions = me.options.self;
 
             this.$el.css("opacity", "0");
 
@@ -111,15 +112,15 @@ define([
                 writecallback.call(this);
             }
 
-            topin = (me.options.direction === 0 ? ((-1)*(me.options.self.topin)) : me.options.self.topin);
+            topin = (me.options.direction === 0 ? ((-1)*(meoptions.topin)) : meoptions.topin);
             this.$el.css("top", topin );
             this.$el.css("opacity", "1");
 
-            top = me.options.self.top;
+            top = meoptions.top;
             this.$el.animate({
                 top: top
 
-            }, me.options.delay, function () {
+            }, meoptions.delay, function () {
                 // Animation complete.
                 if (callback) {
                     callback.call(me);
@@ -130,19 +131,21 @@ define([
         transitionOut: function (writecallback, callback) {
 
             var top,
-                me = this;
+                me = this,
+                meoptions = me.options.self;
 
 
             if (writecallback) {
                 writecallback.call(this);
             }
 
-            top = (me.options.direction === 1 ? ((-1)*(me.options.self.topout)) : me.options.self.topout);
+            top = (me.options.direction === 1 ? ((-1)*(meoptions.topout)) : meoptions.topout);
+
 
             this.$el.animate({
                 top: top
 
-            }, me.options.delay, function () {
+            }, meoptions = meoptions.delay, function () {
                 // Animation complete.
                 if (callback) {
                     callback.call(me);

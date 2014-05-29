@@ -268,6 +268,32 @@ body {
   background-clip: padding-box;
   content: "";
 }
+.lg-device {
+  width: 55px;
+  height: 25px;
+  background: url(../images/sprite.png) -2px -32px no-repeat transparent;
+}
+.apple-device,
+.ios-device {
+  width: 22px;
+  height: 25px;
+  background: url(../images/sprite.png) -63px -32px no-repeat transparent;
+}
+.android-device {
+  width: 22px;
+  height: 25px;
+  background: url(../images/sprite.png) -91px -32px no-repeat transparent;
+}
+.samsung-device {
+  width: 53px;
+  height: 25px;
+  background: url(../images/sprite.png) -46px -32px no-repeat transparent;
+}
+.windows-device {
+  width: 23px;
+  height: 25px;
+  background: url(../images/sprite.png) -120px -32px no-repeat transparent;
+}
 #page .splash-header {
   margin: 0px;
   padding: 0px;
@@ -328,7 +354,17 @@ body {
   left: -84px;
   top: -102px;
 }
+.counter-bg-page3-0 {
+  background-image: url("../images/page2bg.png");
+  width: 301px;
+  height: 159px;
+  position: absolute;
+  left: -104px;
+  top: -27px;
+}
 .petek {
+  position: relative;
+  text-decoration: none;
   float: left;
   width: 136px;
   height: 295px;
@@ -352,7 +388,7 @@ body {
   height: 23px;
   float: right;
   margin: 6px -31px 0px 0px;
-  background: url(../images/sprite.png) -31px 0px no-repeat #ffffff;
+  background: url(../images/sprite.png) -31px 0px no-repeat transparent;
 }
 .petek .icon {
   width: 116px;
@@ -363,7 +399,7 @@ body {
 }
 .petek .details {
   padding: 0px;
-  background-color: #ffffff;
+  background-color: transparent;
   margin: auto auto;
 }
 .petek .details ul {
@@ -399,6 +435,14 @@ body {
   font-size: 14px;
   line-height: 120%;
   padding: 23px 0 0 0;
+}
+.petek:hover,
+a:active,
+a:link,
+a:visited {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 #next-page {
   margin-bottom: 0px;
