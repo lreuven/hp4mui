@@ -92,6 +92,7 @@ define([
             } else {
                 this.transitionOut(function () {
                     _callback();
+                   _renderCounter();
                 }, callback);
             }
 
@@ -145,7 +146,8 @@ define([
             this.$el.animate({
                 top: top
 
-            }, meoptions = meoptions.delay, function () {
+            }, meoptions.delay, function () {
+
                 // Animation complete.
                 if (callback) {
                     callback.call(me);

@@ -60,7 +60,7 @@ define([
                     var petekCompile = _.template(petekTemplate),
                         out = petekCompile(me.enum.ADD_APP),
                         appsData = (data ? data.toJSON() : undefined),
-                        ptakim, contentElt;
+                        ptakim, contentElt, counter = 0;
 
                     if (appsData) {
                         appsData.forEach(function (appData) {
@@ -69,8 +69,7 @@ define([
                                 "icon": (appData.icon || me.enum.DEFAULT_ICON),
                                 title: (appData.name || "NA"),
                                 description: "Description about the application",
-                                version: "Version 2.03",
-                                navigateto: "#page/2/1"
+                                version: "Version" + appData.version
                             });
 
                         });
@@ -80,25 +79,60 @@ define([
                             ptakim = contentElt.children();
                             if (ptakim) {
 
+                                counter = 0;
                                 ptakim.each(function () {
-                                    var petek = $(this).find(".petek");
 
-                                    if (petek) {
-                                        petek.on("click", function () {
+                                    var petekclick = $(this),
+                                        petek = $(this).find(".petek"),
+                                        innerptakim = contentElt.children();
 
-                                            var melt = this;
+                                    // TODO: First Petek should contain a different listener for creating new app
+                                    if (petek && counter > 0) {
 
-                                            $(this).animate({
+                                        petekclick.on("click", function () {
+
+                                            petek.animate({
                                                 top: -80
 
-                                            }, 900, function () {
-                                                // Animation complete.
+                                            }, 700, function () {
 
+                                                petek.animate({
+                                                    top: 0
+
+                                                }, 300, function () {
+                                                    // Animation complete.
+                                                    hp4mui.navigate("#page/2/1");
+                                                });
+
+                                                /*
+                                                     // TODO: transitionOut should contain this kind of transition. We need to caluculate the in too.
+                                                     var innercounter = innerptakim.size();
+                                                     innerptakim.each(function () {
+
+                                                     var item = $(this).find(".petek");
+
+                                                     item.animate({
+                                                     top: ((-80 ) - (( 1000 + innercounter) * innercounter))
+
+                                                     }, 1000, function () {
+                                                     // Animation complete.
+
+
+                                                     hp4mui.navigate("#page/2/1");
+                                                     });
+
+                                                     innercounter--;
+
+                                                     //hp4mui.navigate("#page/2/1");
+                                                 });
+                                                 */
                                             });
 
-                                            me.transition.delay = 4250;
+
                                         });
                                     }
+
+                                    counter++;
                                 });
                             }
                         }
@@ -129,9 +163,7 @@ define([
         transitionOut: function (writecallback, callback) {
 
             var me = this;
-            setTimeout(function () {
-                me.super("transitionOut", [writecallback, callback]);
-            }, me.transition.delay);
+            me.super("transitionOut", [writecallback, callback]);
         }
 
     });

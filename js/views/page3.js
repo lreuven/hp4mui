@@ -3,9 +3,10 @@ define([
     'underscore',
     'backbone',
     'text!templates/page3.html',
-    'views/base'
+    'views/base',
+    'views/control/tab'
 
-], function ($, _, Backbone, appsTemplate, BaseView) {
+], function ($, _, Backbone, appsTemplate, BaseView, Tab) {
     'use strict';
 
     var Page3View = BaseView.extend({
@@ -19,6 +20,10 @@ define([
 
         },
 
+        refs: {
+
+        },
+
         super: function(methodName, args) {
             BaseView.prototype[methodName].apply(this, args);
         },
@@ -29,8 +34,20 @@ define([
         },
 
         render: function (options) {
+            var me = this,
+                content,
+                tab;
+
             this.super("render",[options]);
 
+            content = $(me.el).find("#page #content");
+            if (content) {
+                tab = new Tab();
+                tab.init({
+                    elt: content.find("._tab"),
+                    selected:0
+                });
+            }
 
             return this;
         },

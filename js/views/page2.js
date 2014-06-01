@@ -68,7 +68,8 @@ define([
 
                     var petekCompile = _.template(petekTemplate),
                         out = "",
-                        appsData = (data ? data.toJSON() : undefined);
+                        appsData = (data ? data.toJSON() : undefined),
+                        contentElt, ptakim, counter;
 
                     function _getIconName(deviceData) {
                         var name;
@@ -103,7 +104,69 @@ define([
 
                         });
 
-                        $(me.el).find("#page #content").html(out);
+                        contentElt = $(me.el).find("#page #content").html(out);
+
+                        if (contentElt) {
+                            ptakim = contentElt.children();
+                            if (ptakim) {
+
+                                counter = 0;
+                                ptakim.each(function () {
+
+                                    var petekclick = $(this),
+                                        petek = $(this).find(".petek"),
+                                        innerptakim = contentElt.children();
+
+                                    // TODO: First Petek should contain a different listener for creating new app
+                                    if (petek && counter > 0) {
+
+                                        petekclick.on("click", function () {
+
+                                            petek.animate({
+                                                top: -80
+
+                                            }, 700, function () {
+
+                                                petek.animate({
+                                                    top: 0
+
+                                                }, 300, function () {
+                                                    // Animation complete.
+                                                    hp4mui.navigate("#page/3/1");
+                                                });
+
+                                                /*
+                                                 // TODO: transitionOut should contain this kind of transition. We need to caluculate the in too.
+                                                 var innercounter = innerptakim.size();
+                                                 innerptakim.each(function () {
+
+                                                 var item = $(this).find(".petek");
+
+                                                 item.animate({
+                                                 top: ((-80 ) - (( 1000 + innercounter) * innercounter))
+
+                                                 }, 1000, function () {
+                                                 // Animation complete.
+
+
+                                                 hp4mui.navigate("#page/2/1");
+                                                 });
+
+                                                 innercounter--;
+
+                                                 //hp4mui.navigate("#page/2/1");
+                                                 });
+                                                 */
+                                            });
+
+
+                                        });
+                                    }
+
+                                    counter++;
+                                });
+                            }
+                        }
                     }
                 },
 

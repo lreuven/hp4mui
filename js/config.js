@@ -1,6 +1,26 @@
 /*global require*/
 'use strict';
 
+var hp4mui = function() {
+
+    var _app = {};
+
+    return {
+
+        init: function(config) {
+            _app.router = config.router;
+        },
+
+        navigate: function(location) {
+            if (location) {
+                _app.router.navigate(location, true);
+            }
+        }
+
+    };
+
+}();
+
 // Require.js allows us to configure shortcut alias
 require.config({
 	// The shim config allows us to configure dependencies for
@@ -41,13 +61,13 @@ require([
 	'backbone',
     'routers/router'
 
-], function (Backbone, Workspace) {
+], function (Backbone, Router) {
 
     console.log("[todomvcspa require] initialized");
 	/*jshint nonew:false*/
 
 	// Initialize routing and start Backbone.history()
-    new Workspace();
+    hp4mui.init({router: new Router()});
 
     Backbone.history.start();
 
