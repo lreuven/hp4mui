@@ -4,9 +4,10 @@ define([
     'backbone',
     'text!templates/page3.html',
     'views/base',
-    'views/control/tab'
+    'views/control/tab',
+    'views/control/flip-toggle'
 
-], function ($, _, Backbone, appsTemplate, BaseView, Tab) {
+], function ($, _, Backbone, appsTemplate, BaseView, Tab, FlipToggle) {
     'use strict';
 
     var Page3View = BaseView.extend({
@@ -35,18 +36,34 @@ define([
 
         render: function (options) {
             var me = this,
-                content,
-                tab;
+                content;
+
+            function _registerToggleControl(content, ids) {
+
+                if (ids) {
+                    ids.forEach(function(id){
+                        var toggle = new FlipToggle();
+                        toggle.init({elt: content.find(id)});
+                    });
+                }
+            }
 
             this.super("render",[options]);
 
             content = $(me.el).find("#page #content");
             if (content) {
-                tab = new Tab();
-                tab.init({
-                    elt: content.find("._tab"),
-                    selected:0
+                me.refs.tab = new Tab();
+                me.refs.tab .init({
+                    elt: content.find("._tab")
                 });
+
+                _registerToggleControl(content, [
+                    "#cpu",
+                    "#memory",
+                    "#log",
+                    "#baterry",
+                    "#screenshot"
+                ]);
             }
 
             return this;
@@ -54,7 +71,11 @@ define([
 
         transitionIn: function (writecallback, callback) {
 
-            this.super("transitionIn",[writecallback, callback]);
+            var me = this;
+            me.super("transitionIn",[writecallback, function() {
+                me.refs.tab .selected({index: 0});
+            }]);
+
 
         },
 

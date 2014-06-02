@@ -13,7 +13,7 @@
         "agentVersion": "1.0",
         "deviceType": "real",
         "macAddress": null,
-        "osType": "ANDROID"
+        "osType": "lg"
     },
     {
         "serialNumber": "AE4371E6-015A-4578-BE26-7368A6C058FC",
@@ -29,7 +29,7 @@
         "agentVersion": "1.0",
         "deviceType": "real",
         "macAddress": null,
-        "osType": "IOS"
+        "osType": "samsung"
     },
     {
         "serialNumber": "4df763303930cfe3",

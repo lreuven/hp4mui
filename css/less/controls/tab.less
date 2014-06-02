@@ -17,17 +17,18 @@
       color: #000000;
       font-size: 22px;
       opacity: 0.5;
+      cursor: pointer;
     }
 
     .indicator {
       background-color: #0096d6;
       height: 4px;
-      width: 5px;
+      width: 0px;
       position:relative;
       top: 28px;
       opacity: 1;
 
-      .transition(all .3s ease-in);
+      .transition(all .1s ease-in);
     }
   }
 
@@ -44,6 +45,13 @@
       width: 100%;
       height: 100%;
       .transition(opacity .3s ease-in);
+
+      .cell {
+
+        float:left;
+        width: 78px;
+        height: 85px;
+      }
     }
 
   }

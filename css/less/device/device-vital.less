@@ -1,0 +1,60 @@
+.devices-vital {
+
+  .settings() {
+    margin: 180px 120px 0 0;
+    float: left;
+  }
+
+  width: 100%;
+
+  #cpu {
+    .settings();
+    .image {
+      .config(78, 85, 0, 0);
+    }
+    .toggle {
+      .flip-toggle();
+    }
+  }
+  #memory {
+    .settings();
+    .image {
+      .config(78, 85, -78, 0);
+    }
+    .toggle {
+      .flip-toggle();
+    }
+  }
+
+  #log {
+    .settings();
+    .image {
+      .config(78, 85, -156, 0);
+    }
+    .toggle {
+      .flip-toggle();
+    }
+  }
+
+  #baterry {
+    .settings();
+    .image {
+      .config(78, 85, -234, 0);
+    }
+    .toggle {
+      .flip-toggle();
+    }
+  }
+
+  #screenshots {
+    margin: 180px 0 0 28px;
+    float: left;
+    .image {
+      .config(78, 85, -312, 0);
+    }
+    .toggle {
+      .flip-toggle();
+    }
+  }
+
+}

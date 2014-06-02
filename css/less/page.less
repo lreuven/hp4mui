@@ -1,10 +1,18 @@
 @import "lesshat.less";
 @import "base.less";
-@import "devices.less";
+@import "device/devices.less";
+@import "device/device-vital.less";
 @import "page0.less";
 @import "controls/counter.less";
 @import "controls/petek.less";
 @import "controls/tab.less";
+@import "controls/flip-toggle.less";
+
+.config(@width, @height, @top, @left) {
+  width: unit(@width, px);
+  height: unit(@height, px);
+  background: url(./../images/config.png) unit(@top, px) unit(@left, px) no-repeat transparent;
+}
 
 #next-page {
   margin-bottom: 0px;
@@ -20,7 +28,7 @@
   border-radius: 50%;
   background: url(./../images/sprite.png) 0px 6px no-repeat #ffffff;
   .animation(bounce 1s linear infinite);
-  border:2px solid lightgray;
+  border: 2px solid lightgray;
   opacity: 1;
 
 }
@@ -65,29 +73,18 @@
 
   #content {
     width: 100%;
-    height:100%;
+    height: 100%;
   }
 
   h1#counter {
 
     position: absolute;
-    left:20%;
+    left: 20%;
     top: 40%;
 
-    font:normal 100px "HPSimplified", "Trebuchet MS", Arial;
-    color:#FFFFFF;
-    text-shadow: 0 1px 0 #ccc,
-    0 2px 0 #c9c9c9,
-    0 3px 0 #bbb,
-    0 4px 0 #b9b9b9,
-    0 5px 0 #aaa,
-    0 6px 1px rgba(0,0,0,.1),
-    0 0 5px rgba(0,0,0,.1),
-    0 1px 3px rgba(0,0,0,.3),
-    0 3px 5px rgba(0,0,0,.2),
-    0 5px 10px rgba(0,0,0,.25),
-    0 10px 10px rgba(0,0,0,.2),
-    0 20px 20px rgba(0,0,0,.15);
+    font: normal 100px "HPSimplified", "Trebuchet MS", Arial;
+    color: #FFFFFF;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
   }
 }
 

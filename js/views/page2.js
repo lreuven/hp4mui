@@ -69,7 +69,7 @@ define([
                     var petekCompile = _.template(petekTemplate),
                         out = "",
                         appsData = (data ? data.toJSON() : undefined),
-                        contentElt, ptakim, counter;
+                        contentElt, ptakim, counter, isHover = false;
 
                     function _getIconName(deviceData) {
                         var name;
@@ -89,6 +89,78 @@ define([
                             out = ["<div class='", type, "-device' ></div>"].join("");
                         }
                         return out;
+                    }
+
+                    function _petekHover(petek) {
+
+                        petek.addClass("petek-selected");
+                        console.log(petek.css("top"));
+                        if (isNaN(parseInt(petek.css("top"))) || parseInt(petek.css("top")) === 0) {
+                                petek.animate({
+                                    top: -80
+
+                                }, 350, function () {
+                            });
+                        }
+
+                    }
+
+                    function _petekOut(petek) {
+
+                        petek.addClass("petek-selected");
+                        if (parseInt(petek.css("top")) < 0) {
+                            petek.animate({
+                                top: 0
+
+                            }, 350, function () {
+                                // Animation complete.
+
+                            });
+                        }
+
+                    }
+
+                    function _petekSelected(petek) {
+
+                        petek.addClass("petek-selected");
+                        petek.animate({
+                            top: -80
+
+                        }, 700, function () {
+
+                            petek.animate({
+                                top: 0
+
+                            }, 300, function () {
+                                // Animation complete.
+                                hp4mui.navigate("#page/3/1");
+                            });
+
+                            /*
+                             // TODO: transitionOut should contain this kind of transition. We need to caluculate the in too.
+                             var innercounter = innerptakim.size();
+                             innerptakim.each(function () {
+
+                             var item = $(this).find(".petek");
+
+                             item.animate({
+                             top: ((-80 ) - (( 1000 + innercounter) * innercounter))
+
+                             }, 1000, function () {
+                             // Animation complete.
+
+
+                             hp4mui.navigate("#page/2/1");
+                             });
+
+                             innercounter--;
+
+                             //hp4mui.navigate("#page/2/1");
+                             });
+                             */
+                        });
+
+
                     }
 
                     if (appsData) {
@@ -114,53 +186,14 @@ define([
                                 ptakim.each(function () {
 
                                     var petekclick = $(this),
-                                        petek = $(this).find(".petek"),
-                                        innerptakim = contentElt.children();
+                                        petek = $(this).find(".petek");
 
                                     // TODO: First Petek should contain a different listener for creating new app
-                                    if (petek && counter > 0) {
+                                    if (counter > 0) {
 
-                                        petekclick.on("click", function () {
-
-                                            petek.animate({
-                                                top: -80
-
-                                            }, 700, function () {
-
-                                                petek.animate({
-                                                    top: 0
-
-                                                }, 300, function () {
-                                                    // Animation complete.
-                                                    hp4mui.navigate("#page/3/1");
-                                                });
-
-                                                /*
-                                                 // TODO: transitionOut should contain this kind of transition. We need to caluculate the in too.
-                                                 var innercounter = innerptakim.size();
-                                                 innerptakim.each(function () {
-
-                                                 var item = $(this).find(".petek");
-
-                                                 item.animate({
-                                                 top: ((-80 ) - (( 1000 + innercounter) * innercounter))
-
-                                                 }, 1000, function () {
-                                                 // Animation complete.
-
-
-                                                 hp4mui.navigate("#page/2/1");
-                                                 });
-
-                                                 innercounter--;
-
-                                                 //hp4mui.navigate("#page/2/1");
-                                                 });
-                                                 */
-                                            });
-
-
-                                        });
+                                        petekclick.on("click", function(){_petekSelected(petek)});
+                                        //petekclick.on("mouseover", function(){_petekHover(petek)});
+                                        //petekclick.on("mouseout", function(){_petekOut(petek)});
                                     }
 
                                     counter++;
